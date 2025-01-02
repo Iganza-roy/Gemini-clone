@@ -1,11 +1,11 @@
-import React from 'react'
+import SideBar from './Components/Sidebar/SideBar';
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+      <SideBar />
+    </>
+  );
+};
 
-export default App
+export default App;
