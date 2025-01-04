@@ -1,7 +1,18 @@
 import './main.css';
 import { assets } from '../../assets/assets';
+import { Context } from '../../context/context';
 
 const Main = () => {
+  const {
+    onSent,
+    recentPrompt,
+    showResponse,
+    loading,
+    responseData,
+    setInput,
+    Input,
+  } = useContext(Context);
+
   return (
     <div className='main'>
       <div className='nav'>
