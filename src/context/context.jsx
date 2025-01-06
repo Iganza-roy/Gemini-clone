@@ -15,6 +15,7 @@ const ContextProvider = (props) => {
     setResultData('');
     setLoading(true);
     setShowResult(true);
+    setrecentPrompt(input);
     const resonse = await run(input);
     setResultData(resonse);
     setLoading(false);
