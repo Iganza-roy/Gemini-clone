@@ -4,13 +4,12 @@ import { Context } from '../../context/context';
 import { useContext } from 'react';
 
 const Main = () => {
-  
   const {
     onSent,
     recentPrompt,
-    showResponse,
+    showResult,
     loading,
-    responseData,
+    resultData,
     setInput,
     input,
   } = useContext(Context);
@@ -57,7 +56,7 @@ const Main = () => {
             <div>
               <img src={assets.gallery_icon} alt='gallery' />
               <img src={assets.mic_icon} alt='mic' />
-              <img onClick={() => onSent} src={assets.send_icon} alt='send' />
+              <img onClick={() => onSent()} src={assets.send_icon} alt='send' />
             </div>
           </div>
           <p className='bottom-info'>
