@@ -6,14 +6,14 @@ export const Context = createContext();
 const ContextProvider = (props) => {
   const [input, setInput] = useState('');
   const [recentPrompt, setrecentPrompt] = useState('');
-  const [previousPrompt, setPreviousPrompt] = useState([]);
+  const [previousPrompts, setPreviousPrompts] = useState([]);
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState('');
 
-  const delayParam = (index, next) => {
+  const delayParam = (index, nextWord) => {
     setTimeout(function () {
-      setResultData((prev) => prev + nextword);
+      setResultData((prev) => prev + nextWord);
     }, 75 * index);
   };
 
@@ -22,9 +22,10 @@ const ContextProvider = (props) => {
     setLoading(true);
     setShowResult(true);
     setrecentPrompt(input);
+    setPreviousPrompts((prev) => [...prev, input]);
     const response = await run(input);
     let responseArray = response.split('**');
-    let newResponse;
+    let newResponse = '';
     for (let i = 0; i < responseArray.length; i++) {
       if (i === 0 || i % 2 !== 1) {
         newResponse += responseArray[i];
@@ -45,8 +46,8 @@ const ContextProvider = (props) => {
   };
 
   const contextValue = {
-    previousPrompt,
-    setPreviousPrompt,
+    previousPrompts,
+    setPreviousPrompts,
     onSent,
     setrecentPrompt,
     recentPrompt,
