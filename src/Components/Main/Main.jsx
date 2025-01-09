@@ -14,6 +14,12 @@ const Main = () => {
     input,
   } = useContext(Context);
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && input) {
+      onSent();
+    }
+  };
+
   return (
     <div className='main'>
       <div className='nav'>
@@ -76,6 +82,7 @@ const Main = () => {
               value={input}
               type='text'
               placeholder='Enter prompt here'
+              onKeyDown={handleKeyDown}
             />
             <div>
               <img src={assets.gallery_icon} alt='gallery' />
