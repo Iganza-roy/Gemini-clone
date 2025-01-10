@@ -10,8 +10,8 @@ const Main = () => {
     showResult,
     loading,
     resultData,
-    setInput,
     input,
+    setInput,
   } = useContext(Context);
 
   const handleKeyDown = (e) => {
